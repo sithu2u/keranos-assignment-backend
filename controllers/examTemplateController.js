@@ -3,6 +3,7 @@ import { getPdfPageCount } from "../utils/getPdfPageCount.js";
 import examTemplateService from "../providers/examTemplate/examTemplate.service.js";
 import { validateObjectId } from "../utils/validateObjectId.js";
 import { processFile } from "../utils/fileUploadProcessor.js";
+import { preprocessImage } from "../utils/preProcessingIamge.js";
 
 // import { processFile, processMultipleFiles } from '../utils/fileProcessor.js';
 
@@ -25,9 +26,21 @@ export const createExamTemplate = async (req, res) => {
     const ext = path.extname(savedFile.originalname).toLowerCase();
     if (ext == ".pdf") pageCount = await getPdfPageCount(savedFile.path);
 
+    const outputFolderPath = `exam_templates/processed`;
+
+    //TODO check file is pdf , conver to image
+
+    //now just only put single image
+    console.log(savedFile.url);
+    const processedImageUrl = await preprocessImage(
+      savedFile.url,
+      outputFolderPath
+    );
+
     const examTemplate = await examTemplateService.createExamTemplate({
       title: title,
-      documentUrl: savedFile.url, // Local path or S3 URL
+      // documentUrl: savedFile.url, // Local path or S3 URL
+      documentUrl: processedImageUrl,
       status: "pending",
       pages: pageCount,
       createdBy: req.user._id,

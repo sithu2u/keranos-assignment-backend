@@ -2,7 +2,6 @@ import sharp from "sharp";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import Tesseract from "tesseract.js";
 import { analyzeSkew } from "./analyzeDeskew.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -42,17 +41,18 @@ export const preprocessImage = async (inputPath, outputPath) => {
   // console.log(absoluteInputPath);
   try {
     // Step 1: Preprocessing
-    await sharp(absoluteInputPath)
+    const rst = await sharp(absoluteInputPath)
       .rotate() // auto-orient
       .resize({ width: 1920 }) // max width
       .grayscale()
-      .blur(0.3)
       .linear(1.2, -20) // contrast
+      .median(1) // light noise removal
       .toFile(tempPath);
 
     // Step 2: Deskew (if needed)
     if (needDeskew)
       await sharp(tempPath).rotate(-skewAngle).toFile(outputFullPath);
+    else await sharp(tempPath).toFile(outputFullPath);
 
     // Cleanup temp file
     await fs.promises.unlink(tempPath);

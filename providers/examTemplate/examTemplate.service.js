@@ -9,7 +9,7 @@ const createExamTemplate = async (data) => {
 
 const findAllExamTemplates = async () => {
   //   return await ExamTemplate.find({ deleted: false }).sort("createdAt");
-  return await ExamTemplate.find()
+  return await ExamTemplate.find({ deleted: false })
     .populate("createdBy", "name")
     .sort("createdAt");
 };

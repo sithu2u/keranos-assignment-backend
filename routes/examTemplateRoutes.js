@@ -7,6 +7,7 @@ import {
   findOneExamTemplate,
   updateRegion,
   updateExamTemplateInfo,
+  softDeleteExamTemplates,
 } from "../controllers/examTemplateController.js";
 import { authMiddleware } from "../middlewares/authMiddleware.js";
 import { roleMiddleware } from "../middlewares/roleMiddleware.js";
@@ -22,6 +23,8 @@ router.put("/:id/info", updateExamTemplateInfo);
 
 router.get("/", findAllExamTemplates);
 router.get("/:id", findOneExamTemplate);
+
+router.put("/delete-many", softDeleteExamTemplates);
 
 router.post("/", uploadSingle, createExamTemplate);
 
