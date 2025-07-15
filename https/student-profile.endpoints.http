@@ -29,8 +29,6 @@ Content-Type: application/json
     "studentId":"STD123"
 }
 
-
-
 ### Update User
 PUT http://{{host}}/{{resource}}/686e3f33c1feb59afdc0e2fa
 Authorization: {{authorization}}
