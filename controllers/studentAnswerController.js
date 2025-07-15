@@ -183,8 +183,8 @@ const checkAnswer = (regions, ocrResult) => {
     .map((region) => {
       const regionId = region._id.toString();
       const studentAnswer = ocrResult[regionId];
-
-      if (studentAnswer.text === undefined) return null; // skip if no answer
+      // console.log(studentAnswer.text);
+      if (studentAnswer === undefined) return null; // skip if no answer
 
       const isCorrect =
         studentAnswer.text.trim().toLowerCase() ===

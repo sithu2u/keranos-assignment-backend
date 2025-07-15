@@ -22,6 +22,7 @@ const __dirname = path.join(path.dirname(__filename));
 
 const app = express();
 const server = http.createServer(app);
+server.timeout = 300000; // 5 minutes
 
 // Craete Database connection
 mongoose.connect(MONGODB_CONNECTION, {});

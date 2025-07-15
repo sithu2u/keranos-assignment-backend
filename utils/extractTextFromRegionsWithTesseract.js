@@ -12,7 +12,7 @@ export const extractTextFromRegionsWithTesseract = async (
   regions = []
 ) => {
   const results = {};
-  const studentId = "";
+  let studentId = "";
   const imageBuffer = await fs.readFile(imagePath);
 
   for (const region of regions) {
