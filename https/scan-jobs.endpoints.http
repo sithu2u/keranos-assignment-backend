@@ -1,0 +1,22 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}/api
+@resource = scan-jobs
+
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODZlMDIwZjBmOWY3M2NlNTYzMjU3MjQiLCJuYW1lIjoidGVzdCIsImlhdCI6MTc1MjA0MDAwMSwiZXhwIjoxNzUyMDc2MDAxfQ.U7QzwHPT_TA0pTY52Lj97sHGC5B7canVEgF2O0LoHss
+
+### Get All Students
+POST http://{{host}}/{{resource}}
+Authorization: {{authorization}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="title"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="fileDocs"; filename="1.png"
+Content-Type: image/png
+
+< ./files/1.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

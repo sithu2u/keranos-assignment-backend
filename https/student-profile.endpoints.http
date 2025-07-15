@@ -1,0 +1,63 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}/api
+@resource = students
+
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODZlMDIwZjBmOWY3M2NlNTYzMjU3MjQiLCJuYW1lIjoidGVzdCIsImlhdCI6MTc1MjA0MDAwMSwiZXhwIjoxNzUyMDc2MDAxfQ.U7QzwHPT_TA0pTY52Lj97sHGC5B7canVEgF2O0LoHss
+
+#teacher - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODZlMDUxNTFhNDEzODNiMzA5NGMwYTUiLCJuYW1lIjoidGVhY2hlcjMiLCJpYXQiOjE3NTIwNjI1MjgsImV4cCI6MTc1MjA5ODUyOH0.vWNzhz0nBrd_G_V_SXKJ-XXsuu0kWTND9u2yaF12iBc
+# 
+### Get All Students
+GET http://{{host}}/{{resource}}
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+### Get Specific Student
+GET http://{{host}}/{{resource}}/686e05271a41383b3094c0a8
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+### Create Student
+POST http://{{host}}/{{resource}}/
+Authorization: {{authorization}}
+Content-Type: application/json
+
+{
+    "userId":"686e05271a41383b3094c0a8",
+    "studentId":"STD123"
+}
+
+
+
+### Update User
+PUT http://{{host}}/{{resource}}/686e3f33c1feb59afdc0e2fa
+Authorization: {{authorization}}
+Content-Type: application/json
+
+{
+    "section":"1"
+}
+
+
+
+### Soft Delete User
+PUT  http://{{host}}/{{resource}}/delete/686e05151a41383b3094c0a5
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+### Restore User
+PUT  http://{{host}}/{{resource}}/restore/686e05151a41383b3094c0a5
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+
+### Delete User
+DELETE  http://{{host}}/{{resource}}/686e05151a41383b3094c0a5
+Authorization: {{authorization}}
+Content-Type: application/json
+
+

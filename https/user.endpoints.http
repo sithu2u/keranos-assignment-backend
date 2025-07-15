@@ -1,0 +1,71 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}/api
+@resource = users
+
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODZlMDIwZjBmOWY3M2NlNTYzMjU3MjQiLCJuYW1lIjoidGVzdCIsImlhdCI6MTc1MjE1MDQ2MiwiZXhwIjoxNzUyNTEwNDYyfQ.ZWI5lmzxThV61Cos2HAsO7nXpMysMtOQMyb6Hls1zvk
+
+
+
+### Get All Users
+# GET http://{{host}}/{{resource}}/test
+# Authorization: {{authorization}}
+# Content-Type: application/json
+
+### Get All Users
+GET http://{{host}}/{{resource}}
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+### Get Specific User
+GET http://{{host}}/{{resource}}/686e020f0f9f73ce56325724
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+### Create User
+POST http://{{host}}/{{resource}}/
+Authorization: {{authorization}}
+Content-Type: application/json
+
+{
+    "name":"teacher5",
+    "email":"teacher5@example.com",
+    "password":"123456",
+    "role":"teacher",
+    "status":"active"
+}
+
+
+
+### Update User
+PUT http://{{host}}/{{resource}}/686e04b6215069c3565084dc
+Authorization: {{authorization}}
+Content-Type: application/json
+
+{
+    "status":"true"
+}
+
+
+
+### Soft Delete User
+PUT  http://{{host}}/{{resource}}/delete/686e05151a41383b3094c0a5
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+### Restore User
+PUT  http://{{host}}/{{resource}}/restore/686e05151a41383b3094c0a5
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+
+### Delete User
+DELETE  http://{{host}}/{{resource}}/686e05151a41383b3094c0a5
+Authorization: {{authorization}}
+Content-Type: application/json
+
+

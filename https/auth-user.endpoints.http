@@ -1,0 +1,31 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}/api
+@resource = auth
+
+### SignUp user
+POST http://{{host}}/{{resource}}/signup
+Content-Type: application/json
+
+{
+    "name":"admin",
+    "email":"admin@example.com",
+    "password":"123456"
+}
+
+### Login user
+POST http://{{host}}/{{resource}}/login
+Content-Type: application/json
+
+{
+    "email":"admin@example.com",
+    "password":"123456"
+}
+
+### Forgot Password
+POST http://{{host}}/{{resource}}/forgot-password
+Content-Type: application/json
+
+{
+    "email":"admin@example.com"
+}

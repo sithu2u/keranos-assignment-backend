@@ -1,0 +1,20 @@
+/node_modules
+.env
+.DS_Store
+
+# Ignore Google service account key file
+arboreal-logic-465918-p7-31aabe071691.json
+
+
+/uploads/exam_templates/*
+/uploads/ocr_regions/*
+/uploads/student_answers/*
+
+!/uploads/exam_templates/
+/uploads/exam_templates/.gitkeep
+
+!/uploads/ocr_regions/
+/uploads/ocr_regions/.gitkeep
+
+!/uploads/student_answers/
+/uploads/student_answers/.gitkeep

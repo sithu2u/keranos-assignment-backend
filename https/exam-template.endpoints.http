@@ -1,0 +1,36 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}/api
+@resource = exam-templates
+
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODZlMDIwZjBmOWY3M2NlNTYzMjU3MjQiLCJuYW1lIjoidGVzdCIsImlhdCI6MTc1MjE1MDQ2MiwiZXhwIjoxNzUyNTEwNDYyfQ.ZWI5lmzxThV61Cos2HAsO7nXpMysMtOQMyb6Hls1zvk
+
+
+### Get All Exam Templates
+GET http://{{host}}/{{resource}}
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+### Get One Exam Templates
+GET http://{{host}}/{{resource}}/687153c72a63c5eb6fb25133
+Authorization: {{authorization}}
+Content-Type: application/json
+
+
+### Upload Exam Template
+POST http://{{host}}/{{resource}}
+Authorization: {{authorization}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="title"
+
+Exam 1
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="2.pdf"
+Content-Type: : application/pdf 
+# Content-Type: image/png
+
+< ./files/2.pdf
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

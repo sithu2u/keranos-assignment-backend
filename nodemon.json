@@ -1,0 +1,10 @@
+{
+  "env": {
+    "HOST": "http://localhost:3000",
+    "PORT": "3000",
+    "MONGODB_CONNECTION": "",
+    "JWT_SECRET_KEY": "Ei8GhpkZFQGEijGBR1jJSQTA2gwCsqs7bhRL",
+    "TOKEN_EXPIRY": "10h",
+    "GOOGLE_VISION_AI_KEY_FILE": "arboreal-logic-465918-p7-31aabe071691.json"
+  }
+}
